@@ -9,75 +9,177 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --space-0:#0b0e1a;--space-1:#0B3D91;--space-2:#112240;--space-3:#FFB800;--space-4:#00D1FF;--white:#ffffff;--muted:#9fb3c8;--card:#0f1630;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.45);
+      --space-0:#0b0e1a; --space-1:#0B3D91; --space-2:#112240; --space-3:#FFB800; --space-4:#00D1FF;
+      --white:#fff; --muted:#9fb3c8; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:radial-gradient(1200px 800px at 85% -10%, rgba(0,209,255,.12), transparent 60%), var(--space-0);color:var(--white);font-family:Inter, system-ui;}
+    html,body{margin:0;background:radial-gradient(1200px 800px at 85% -10%, rgba(0,209,255,.12), transparent 60%), var(--space-0);color:var(--white);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
     a{color:var(--space-4);text-decoration:none}
-    header{position:sticky;top:0;background:linear-gradient(180deg, rgba(11,14,26,.95), rgba(11,14,26,.75));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;max-width:1100px;margin:0 auto;padding:12px 16px;gap:16px}
+    header{position:sticky;top:0;background:linear-gradient(180deg, rgba(11,14,26,.95), rgba(11,14,26,.75));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+    .nav{display:flex;align-items:center;gap:16px;max-width:1100px;margin:0 auto;padding:12px 16px}
     .brand{display:flex;align-items:center;gap:12px}
+    /* >>> LOGO LINE YOU ASKED ABOUT (uses assets/logo.png) <<< */
     .brand img{height:72px;width:auto;border-radius:12px;background:#fff;padding:8px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
-    .brand h1{font-family:Orbitron;font-size:18px;letter-spacing:.08em;margin:0}
+    .brand h1{font-family:Orbitron,Inter,sans-serif;font-size:18px;letter-spacing:.08em;margin:0}
     .spacer{flex:1}
-    .btn{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+    .tab{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
     .hero{max-width:1100px;margin:24px auto 0;padding:32px 16px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
     .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
     .hero .card{padding:24px}
     h2.title{font-family:Orbitron;margin:0 0 8px;font-size:34px;letter-spacing:.04em}
     .subtitle{color:var(--muted);margin:0 0 16px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 0}
+    .badge{border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;font-size:12px;color:#dbe9ff;background:rgba(17,34,64,.55)}
+    .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+    .button{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;background:var(--space-1);color:#fff;border:1px solid rgba(255,255,255,.1);font-weight:600}
+    .button.alt{background:transparent;border-color:rgba(255,255,255,.22)}
+    /* ISS logo card (replaces QR) */
+    .iss-card{display:flex;align-items:center;justify-content:center;min-height:260px}
+    .iss-card img{max-width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:#000}
     .section{max-width:1100px;margin:24px auto;padding:0 16px}
+    .section h3{font-family:Orbitron;margin:0 0 12px}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
     .team{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .team h4{margin:0 0 6px;font-family:Orbitron}
     .team ul{padding-left:16px;margin:8px 0;color:#e6f1ff}
     .team p{color:#dbe9ff;margin:8px 0 0}
+    footer{border-top:1px solid rgba(255,255,255,.08);margin-top:30px}
+    .foot{max-width:1100px;margin:0 auto;padding:16px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .palette{display:flex;gap:8px;margin-left:auto}
+    .sw{width:20px;height:20px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <header>
     <nav class="nav">
       <div class="brand">
-        <img src="assets/descarga(1).png" alt="Carol Baur Logo"/>
-        <h1>ISS Science Fair • Teams</h1>
+        <!-- CHANGE LOGO HERE IF YOU EVER NEED: src points to assets/logo.png -->
+        <img src="assets/logo.png" alt="Carol Baur Logo" onerror="this.style.background='#fff';">
+        <h1>ISS Science Fair · Teams</h1>
       </div>
       <div class="spacer"></div>
-      <a class="btn" href="#teams-5">5th Grade</a>
-      <a class="btn" href="#teams-6">6th Grade</a>
+      <a class="tab" href="#teams-5">5th Grade</a>
+      <a class="tab" href="#teams-6">6th Grade</a>
     </nav>
   </header>
 
   <main class="hero">
     <section class="card">
       <h2 class="title">Welcome aboard the Station 🚀</h2>
-      <p class="subtitle">Explore all 5th & 6th grade teams from the Carol Baur ISS-themed Science Fair. Each card shows their members and a short mission summary.</p>
+      <p class="subtitle">Parents can explore all 5th & 6th grade teams for the ISS-themed Science Fair. Each card shows the members and a brief mission description.</p>
+      <div class="badges">
+        <span class="badge">Palette: NASA Blue · ISS Gold · Cyan</span>
+        <span class="badge">Fonts: Orbitron + Inter</span>
+        <span class="badge">Hosted free on GitHub Pages</span>
+      </div>
+      <div class="cta">
+        <a class="button" href="#teams-5">Browse 5th Grade</a>
+        <a class="button alt" href="#teams-6">Jump to 6th Grade</a>
+      </div>
     </section>
+
+    <!-- REPLACES THE QR: ISS National Laboratory logo -->
+    <aside class="card iss-card">
+      <img src="assets/iss.png" alt="ISS National Laboratory">
+    </aside>
   </main>
 
   <section class="section" id="teams-5">
     <h3>🛰️ 5th Grade Teams</h3>
     <div class="grid">
-      <div class="team"><h4>Team 1 — Mission Control</h4><ul><li>Saad</li><li>José Luis</li><li>Chucho</li><li>Val</li></ul><p>Created the official Science Fair website linking all projects through QR codes and space-inspired design.</p></div>
-      <div class="team"><h4>Team 2 — VR Organ</h4><ul><li>Eunjin Ha</li><li>Yamel Sánchez</li><li>Lucía Acosta</li><li>Sofía Sánchez</li></ul><p>Built an AI assistant that gives everyday health and wellness tips through voice and chat.</p></div>
-      <div class="team"><h4>Team 3 — Organ 3D / AR Gallery</h4><ul><li>Mauricio</li><li>Itza</li><li>Isabella</li><li>Grace</li><li>Alexia</li></ul><p>Showcases human organs in 3D using Augmented Reality so visitors can explore anatomy virtually.</p></div>
-      <div class="team"><h4>Team 4 — Nutrition Planner</h4><ul><li>Daniela Hernández</li><li>Natalia de la Pinta</li><li>Francisco Solórzano</li><li>Haeun Jeon</li></ul><p>Uses AI to design healthy astronaut meals and analyze food balance for space missions.</p></div>
-      <div class="team"><h4>Team 5 — AI Disease Detective</h4><ul><li>Santiago Morales</li><li>Melissa Ortiz</li><li>Gerardo Bravo</li><li>Emmanuel Zárate</li></ul><p>Developed an AI tool that reads symptoms and offers preventive health explanations for astronauts.</p></div>
-      <div class="team"><h4>Team 6 — Daily Health Assistant</h4><ul><li>Ana Isabel</li><li>Lucia O</li><li>Andy</li><li>Rikuto</li></ul><p>Created an AI that gives personalized lifestyle advice for better daily health and self-care.</p></div>
+      <article class="team">
+        <h4>Team 1 — Mission Control</h4>
+        <ul><li>Saad</li><li>José Luis</li><li>Chucho</li><li>Val</li></ul>
+        <p>Built the official Science Fair website with QR access and an ISS-inspired design.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 2 — VR Organ</h4>
+        <ul><li>Eunjin Ha</li><li>Yamel Sánchez</li><li>Lucía Acosta</li><li>Sofía Sánchez</li></ul>
+        <p>An AI wellness assistant that shares simple daily tips for healthy habits.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 3 — Organ 3D / AR Gallery</h4>
+        <ul><li>Mauricio</li><li>Itza</li><li>Isabella</li><li>Grace</li><li>Alexia</li></ul>
+        <p>Augmented Reality models let visitors explore human organs in 3D.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 4 — Nutrition Planner</h4>
+        <ul><li>Daniela Hernández</li><li>Natalia de la Pinta</li><li>Francisco Solórzano</li><li>Haeun Jeon</li></ul>
+        <p>AI analyzes meals and proposes balanced astronaut menus.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 5 — AI Disease Detective</h4>
+        <ul><li>Santiago Morales</li><li>Melissa Ortiz</li><li>Gerardo Bravo</li><li>Emmanuel Zárate</li></ul>
+        <p>Symptom analyzer that offers preventive explanations for quick triage.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 6 — Daily Health Assistant</h4>
+        <ul><li>Ana Isabel</li><li>Lucia O</li><li>Andy</li><li>Rikuto</li></ul>
+        <p>Personalized lifestyle tips powered by AI for everyday well-being.</p>
+      </article>
     </div>
   </section>
 
   <section class="section" id="teams-6">
     <h3>🛰️ 6th Grade Teams</h3>
     <div class="grid">
-      <div class="team"><h4>Team 1 — AI Vital Signs Analyzer</h4><ul><li>Bruno</li><li>Alonso</li><li>Israel</li><li>Antonella</li><li>Carlos David</li></ul><p>Uses AI to interpret blood pressure data and help astronauts monitor vital signs in space.</p></div>
-      <div class="team"><h4>Team 2 — AI Breathing Test</h4><ul><li>Ivanna</li><li>Paulina</li><li>Fatima</li><li>Barbara</li><li>Marietta</li><li>Charlotte</li></ul><p>Measures lung capacity with balloons and uses AI to compare results and improve breathing.</p></div>
-      <div class="team"><h4>Team 3 — Balance & Coordination with AI Feedback</h4><ul><li>Paola</li><li>Lucia</li><li>Yaretzi</li><li>Mariana</li><li>Matias</li></ul><p>Tests balance using sensors and AI to analyze movement like astronauts training in zero gravity.</p></div>
-      <div class="team"><h4>Team 4 — Cognitive Reflex & Reaction Test</h4><ul><li>Montse</li><li>Loretta</li><li>Camila</li><li>Sofia</li><li>Estefania</li></ul><p>Measures reflex speed with a ruler test and AI to calculate reaction time for astronaut training.</p></div>
-      <div class="team"><h4>Team 5 — Heart Rate & Oxygen Monitor</h4><ul><li>Renee</li><li>Abigail</li><li>Victoria</li><li>Emiliano</li><li>Zara</li></ul><p>Uses a pulse oximeter and AI analysis to track oxygen and heart rate levels like real doctors.</p></div>
-      <div class="team"><h4>Team 6 — Muscle Strength & Gravity Resistance</h4><ul><li>Dany</li><li>Pato</li><li>Leo</li><li>Marco</li><li>José</li></ul><p>Analyzes grip strength with AI to study how astronauts maintain muscles in zero gravity.</p></div>
+      <article class="team">
+        <h4>Team 1 — AI Vital Signs Analyzer</h4>
+        <ul><li>Bruno</li><li>Alonso</li><li>Israel</li><li>Antonella</li><li>Carlos David</li></ul>
+        <p>AI interprets blood-pressure data to help monitor astronaut health.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 2 — AI Breathing Test</h4>
+        <ul><li>Ivanna</li><li>Paulina</li><li>Fatima</li><li>Barbara</li><li>Marietta</li><li>Charlotte</li></ul>
+        <p>Balloon lung-capacity test with AI comparisons to typical ranges.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 3 — Balance & Coordination with AI Feedback</h4>
+        <ul><li>Paola</li><li>Lucia</li><li>Yaretzi</li><li>Mariana</li><li>Matias</li></ul>
+        <p>Motion data analysis checks balance like pre-flight astronaut training.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 4 — Cognitive Reflex & Reaction Test</h4>
+        <ul><li>Montse</li><li>Loretta</li><li>Camila</li><li>Sofia</li><li>Estefania</li></ul>
+        <p>Ruler-drop test with AI to calculate reaction time in milliseconds.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 5 — Heart Rate & Oxygen Monitor</h4>
+        <ul><li>Renee</li><li>Abigail</li><li>Victoria</li><li>Emiliano</li><li>Zara</li></ul>
+        <p>Pulse-oximeter readings and AI feedback on cardio-respiratory status.</p>
+      </article>
+
+      <article class="team">
+        <h4>Team 6 — Muscle Strength & Gravity Resistance</h4>
+        <ul><li>Dany</li><li>Pato</li><li>Leo</li><li>Marco</li><li>José</li></ul>
+        <p>Grip-strength test with AI suggestions to maintain muscle in microgravity.</p>
+      </article>
     </div>
   </section>
 
-  <footer style="text-align:center;padding:20px;color:#9fb3c8;font-size:13px">© Carol Baur School — ISS Science Fair 2025</footer>
+  <footer>
+    <div class="foot">
+      <span>© Carol Baur School — ISS Science Fair 2025</span>
+      <span style="opacity:.6">·</span>
+      <span>Design system inspired by the International Space Station.</span>
+      <div class="palette" title="Color Palette">
+        <div class="sw" style="background:#0b0e1a"></div>
+        <div class="sw" style="background:#0B3D91"></div>
+        <div class="sw" style="background:#112240"></div>
+        <div class="sw" style="background:#FFB800"></div>
+        <div class="sw" style="background:#00D1FF"></div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
