@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carol Baur • ISS Science Fair Teams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --space-0:#0b0e1a;      /* deep space */
+      --space-1:#0B3D91;      /* NASA blue */
+      --space-2:#112240;      /* starfield blue */
+      --space-3:#FFB800;      /* ISS gold */
+      --space-4:#00D1FF;      /* accent cyan */
+      --white:#ffffff;
+      --muted:#9fb3c8;
+      --card:#0f1630;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:radial-gradient(1200px 800px at 85% -10%, rgba(0,209,255,.12), transparent 60%), var(--space-0);color:var(--white);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    a{color:var(--space-4);text-decoration:none}
+    a:hover{opacity:.9}
+    header{
+      position:sticky;top:0;z-index:10;background:linear-gradient(180deg, rgba(11,14,26,.95), rgba(11,14,26,.75));backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{display:flex;gap:16px;align-items:center;max-width:1100px;margin:0 auto;padding:12px 16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:40px;width:auto;border-radius:10px;background:#fff;padding:6px}
+    .brand h1{font-family:Orbitron, Inter, sans-serif;font-size:18px;letter-spacing:.08em;margin:0}
+    .spacer{flex:1}
+    .nav a.btn{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+
+    .hero{max-width:1100px;margin:24px auto 0;padding:32px 16px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero .card{padding:24px}
+    h2.title{font-family:Orbitron, Inter, sans-serif;margin:0 0 8px;font-size:34px;letter-spacing:.04em}
+    .subtitle{color:var(--muted);margin:0 0 16px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 0}
+    .badge{border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;font-size:12px;color:#dbe9ff;background:rgba(17,34,64,.55)}
+    .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+    .button{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;background:var(--space-1);color:#fff;border:1px solid rgba(255,255,255,.1);font-weight:600}
+    .button.alt{background:transparent;border-color:rgba(255,255,255,.22)}
+
+    .qr-card{padding:18px;text-align:center}
+    .qr-card h3{margin:8px 0 6px;font-family:Orbitron}
+    .qr-card p{margin:0;color:var(--muted);font-size:14px}
+    #qrcode{display:flex;justify-content:center;padding:12px}
+    canvas{image-rendering:pixelated}
+
+    .section{max-width:1100px;margin:24px auto;padding:0 16px}
+    .section h3{font-family:Orbitron;margin:0 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+    .team{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .team h4{margin:0 0 6px;font-family:Orbitron}
+    .meta{font-size:12px;color:#a8c0ff;margin-bottom:10px}
+    .team ul{padding-left:16px;margin:8px 0;color:#e6f1ff}
+    .team p{color:#dbe9ff;margin:8px 0 0}
+
+    footer{border-top:1px solid rgba(255,255,255,.08);margin-top:30px}
+    .foot{max-width:1100px;margin:0 auto;padding:16px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .palette{display:flex;gap:8px;margin-left:auto}
+    .sw{width:20px;height:20px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <!-- Replace assets/logo.png with your real logo path in the repo -->
+        <img src="assets/logo.png" alt="Carol Baur Logo" onerror="this.src='https://dummyimage.com/80x80/ffffff/0b0e1a.png&text=LOGO'"/>
+        <h1>ISS Science Fair • Teams</h1>
+      </div>
+      <div class="spacer"></div>
+      <a class="btn" href="#teams-5">5th Grade</a>
+      <a class="btn" href="#teams-6">6th Grade</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <section class="card">
+      <h2 class="title">Welcome aboard the Station 🚀</h2>
+      <p class="subtitle">Parents can explore all 5th & 6th grade teams for the <strong>ISS‑themed Science Fair</strong>. Each card shows the members and a brief mission description.</p>
+      <div class="badges">
+        <span class="badge">Palette: NASA Blue · ISS Gold · Cyan</span>
+        <span class="badge">Fonts: Orbitron + Inter</span>
+        <span class="badge">Hosted free on GitHub Pages</span>
+      </div>
+      <div class="cta">
+        <a class="button" href="#teams-5">Browse 5th Grade</a>
+        <a class="button alt" href="#teams-6">Jump to 6th Grade</a>
+      </div>
+    </section>
+
+    <aside class="card qr-card">
+      <div id="qrcode"></div>
+      <h3>Scan to open this site</h3>
+      <p>This dynamic QR always points to the current page URL. Perfect for posters and parent handouts.</p>
+      <div style="margin-top:12px"><button class="button alt" id="downloadQR">Download QR (PNG)</button></div>
+    </aside>
+  </main>
+
+  <section class="section" id="teams-5">
+    <h3>🛰️ 5th Grade Teams</h3>
+    <div id="grid-5" class="grid"></div>
+  </section>
+
+  <section class="section" id="teams-6">
+    <h3>🛰️ 6th Grade Teams</h3>
+    <div id="grid-6" class="grid"></div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <span>© Carol Baur School — ISS Science Fair</span>
+      <span style="opacity:.6">·</span>
+      <span>Design system inspired by the International Space Station.</span>
+      <div class="palette" title="Color Palette">
+        <div class="sw" style="background:var(--space-0)"></div>
+        <div class="sw" style="background:var(--space-1)"></div>
+        <div class="sw" style="background:var(--space-2)"></div>
+        <div class="sw" style="background:var(--space-3)"></div>
+        <div class="sw" style="background:var(--space-4)"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightweight QR generator -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script>
+    // ====== DATA: Edit below to add your real teams ======
+    const teams5 = [
+      {
+        name: "Team 1 — AI Diagnostics",
+        members: ["Saad", "Pepe Luis", "Chucho", "Val"],
+        blurb: "Using AI to help doctors analyze medical images faster and spot patterns like a trained specialist.",
+      },
+      // TODO: Replace the placeholder entries below with your actual teams
+      { name: "Team 2 — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
+      { name: "Team 3 — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
+      { name: "Team 4 — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
+    ];
+
+    const teams6 = [
+      { name: "Team A — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
+      { name: "Team B — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
+      { name: "Team C — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
+    ];
+
+    // ====== RENDER ======
+    function teamCard(t){
+      const el = document.createElement('article');
+      el.className = 'team';
+      el.innerHTML = `
+        <h4>${t.name}</h4>
+        <div class="meta">Members</div>
+        <ul>${t.members.map(m=>`<li>${m}</li>`).join('')}</ul>
+        <p>${t.blurb}</p>
+      `;
+      return el;
+    }
+    function render(){
+      const g5 = document.getElementById('grid-5');
+      const g6 = document.getElementById('grid-6');
+      g5.replaceChildren(...teams5.map(teamCard));
+      g6.replaceChildren(...teams6.map(teamCard));
+    }
+    render();
+
+    // ====== QR for current page ======
+    function makeQR(){
+      const url = window.location.href;
+      const canvas = document.createElement('canvas');
+      QRCode.toCanvas(canvas, url, { width: 220, margin: 1, color: { dark: '#0B3D91', light: '#ffffff' } }, function (error) {
+        if (error) console.error(error);
+        const holder = document.getElementById('qrcode');
+        holder.innerHTML = '';
+        holder.appendChild(canvas);
+      })
+    }
+    makeQR();
+    window.addEventListener('hashchange', makeQR);
+
+    // Download QR as PNG
+    document.getElementById('downloadQR').addEventListener('click', () => {
+      const canvas = document.querySelector('#qrcode canvas');
+      const link = document.createElement('a');
+      link.download = 'ISS_ScienceFair_QR.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  </script>
+</body>
+</html>
