@@ -9,74 +9,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --space-0:#0b0e1a;      /* deep space */
-      --space-1:#0B3D91;      /* NASA blue */
-      --space-2:#112240;      /* starfield blue */
-      --space-3:#FFB800;      /* ISS gold */
-      --space-4:#00D1FF;      /* accent cyan */
-      --white:#ffffff;
-      --muted:#9fb3c8;
-      --card:#0f1630;
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --space-0:#0b0e1a;--space-1:#0B3D91;--space-2:#112240;--space-3:#FFB800;--space-4:#00D1FF;--white:#ffffff;--muted:#9fb3c8;--card:#0f1630;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:radial-gradient(1200px 800px at 85% -10%, rgba(0,209,255,.12), transparent 60%), var(--space-0);color:var(--white);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    html,body{margin:0;background:radial-gradient(1200px 800px at 85% -10%, rgba(0,209,255,.12), transparent 60%), var(--space-0);color:var(--white);font-family:Inter, system-ui;}
     a{color:var(--space-4);text-decoration:none}
-    a:hover{opacity:.9}
-    header{
-      position:sticky;top:0;z-index:10;background:linear-gradient(180deg, rgba(11,14,26,.95), rgba(11,14,26,.75));backdrop-filter: blur(6px);
-      border-bottom:1px solid rgba(255,255,255,.06)
-    }
-    .nav{display:flex;gap:16px;align-items:center;max-width:1100px;margin:0 auto;padding:12px 16px}
+    header{position:sticky;top:0;background:linear-gradient(180deg, rgba(11,14,26,.95), rgba(11,14,26,.75));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;max-width:1100px;margin:0 auto;padding:12px 16px;gap:16px}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:40px;width:auto;border-radius:10px;background:#fff;padding:6px}
-    .brand h1{font-family:Orbitron, Inter, sans-serif;font-size:18px;letter-spacing:.08em;margin:0}
+    .brand img{height:72px;width:auto;border-radius:12px;background:#fff;padding:8px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    .brand h1{font-family:Orbitron;font-size:18px;letter-spacing:.08em;margin:0}
     .spacer{flex:1}
-    .nav a.btn{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
-
+    .btn{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
     .hero{max-width:1100px;margin:24px auto 0;padding:32px 16px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
     .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
     .hero .card{padding:24px}
-    h2.title{font-family:Orbitron, Inter, sans-serif;margin:0 0 8px;font-size:34px;letter-spacing:.04em}
+    h2.title{font-family:Orbitron;margin:0 0 8px;font-size:34px;letter-spacing:.04em}
     .subtitle{color:var(--muted);margin:0 0 16px}
-    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 0}
-    .badge{border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;font-size:12px;color:#dbe9ff;background:rgba(17,34,64,.55)}
-    .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-    .button{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;background:var(--space-1);color:#fff;border:1px solid rgba(255,255,255,.1);font-weight:600}
-    .button.alt{background:transparent;border-color:rgba(255,255,255,.22)}
-
-    .qr-card{padding:18px;text-align:center}
-    .qr-card h3{margin:8px 0 6px;font-family:Orbitron}
-    .qr-card p{margin:0;color:var(--muted);font-size:14px}
-    #qrcode{display:flex;justify-content:center;padding:12px}
-    canvas{image-rendering:pixelated}
-
     .section{max-width:1100px;margin:24px auto;padding:0 16px}
-    .section h3{font-family:Orbitron;margin:0 0 12px}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
     .team{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .team h4{margin:0 0 6px;font-family:Orbitron}
-    .meta{font-size:12px;color:#a8c0ff;margin-bottom:10px}
     .team ul{padding-left:16px;margin:8px 0;color:#e6f1ff}
     .team p{color:#dbe9ff;margin:8px 0 0}
-
-    footer{border-top:1px solid rgba(255,255,255,.08);margin-top:30px}
-    .foot{max-width:1100px;margin:0 auto;padding:16px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-    .palette{display:flex;gap:8px;margin-left:auto}
-    .sw{width:20px;height:20px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}
-
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-    }
   </style>
 </head>
 <body>
   <header>
     <nav class="nav">
       <div class="brand">
-        descarga(1).png
-        <img src="assets/logo.png" alt="Carol Baur Logo" onerror="this.src='https://dummyimage.com/80x80/ffffff/0b0e1a.png&text=LOGO'"/>
+        <img src="assets/descarga(1).png" alt="Carol Baur Logo"/>
         <h1>ISS Science Fair • Teams</h1>
       </div>
       <div class="spacer"></div>
@@ -88,115 +50,34 @@
   <main class="hero">
     <section class="card">
       <h2 class="title">Welcome aboard the Station 🚀</h2>
-      <p class="subtitle">Parents can explore all 5th & 6th grade teams for the <strong>ISS‑themed Science Fair</strong>. Each card shows the members and a brief mission description.</p>
-      <div class="badges">
-        <span class="badge">Palette: NASA Blue · ISS Gold · Cyan</span>
-        <span class="badge">Fonts: Orbitron + Inter</span>
-        <span class="badge">Hosted free on GitHub Pages</span>
-      </div>
-      <div class="cta">
-        <a class="button" href="#teams-5">Browse 5th Grade</a>
-        <a class="button alt" href="#teams-6">Jump to 6th Grade</a>
-      </div>
+      <p class="subtitle">Explore all 5th & 6th grade teams from the Carol Baur ISS-themed Science Fair. Each card shows their members and a short mission summary.</p>
     </section>
-
-    <aside class="card qr-card">
-      <div id="qrcode"></div>
-      <h3>Scan to open this site</h3>
-      <p>This dynamic QR always points to the current page URL. Perfect for posters and parent handouts.</p>
-      <div style="margin-top:12px"><button class="button alt" id="downloadQR">Download QR (PNG)</button></div>
-    </aside>
   </main>
 
   <section class="section" id="teams-5">
     <h3>🛰️ 5th Grade Teams</h3>
-    <div id="grid-5" class="grid"></div>
+    <div class="grid">
+      <div class="team"><h4>Team 1 — Mission Control</h4><ul><li>Saad</li><li>José Luis</li><li>Chucho</li><li>Val</li></ul><p>Created the official Science Fair website linking all projects through QR codes and space-inspired design.</p></div>
+      <div class="team"><h4>Team 2 — VR Organ</h4><ul><li>Eunjin Ha</li><li>Yamel Sánchez</li><li>Lucía Acosta</li><li>Sofía Sánchez</li></ul><p>Built an AI assistant that gives everyday health and wellness tips through voice and chat.</p></div>
+      <div class="team"><h4>Team 3 — Organ 3D / AR Gallery</h4><ul><li>Mauricio</li><li>Itza</li><li>Isabella</li><li>Grace</li><li>Alexia</li></ul><p>Showcases human organs in 3D using Augmented Reality so visitors can explore anatomy virtually.</p></div>
+      <div class="team"><h4>Team 4 — Nutrition Planner</h4><ul><li>Daniela Hernández</li><li>Natalia de la Pinta</li><li>Francisco Solórzano</li><li>Haeun Jeon</li></ul><p>Uses AI to design healthy astronaut meals and analyze food balance for space missions.</p></div>
+      <div class="team"><h4>Team 5 — AI Disease Detective</h4><ul><li>Santiago Morales</li><li>Melissa Ortiz</li><li>Gerardo Bravo</li><li>Emmanuel Zárate</li></ul><p>Developed an AI tool that reads symptoms and offers preventive health explanations for astronauts.</p></div>
+      <div class="team"><h4>Team 6 — Daily Health Assistant</h4><ul><li>Ana Isabel</li><li>Lucia O</li><li>Andy</li><li>Rikuto</li></ul><p>Created an AI that gives personalized lifestyle advice for better daily health and self-care.</p></div>
+    </div>
   </section>
 
   <section class="section" id="teams-6">
     <h3>🛰️ 6th Grade Teams</h3>
-    <div id="grid-6" class="grid"></div>
+    <div class="grid">
+      <div class="team"><h4>Team 1 — AI Vital Signs Analyzer</h4><ul><li>Bruno</li><li>Alonso</li><li>Israel</li><li>Antonella</li><li>Carlos David</li></ul><p>Uses AI to interpret blood pressure data and help astronauts monitor vital signs in space.</p></div>
+      <div class="team"><h4>Team 2 — AI Breathing Test</h4><ul><li>Ivanna</li><li>Paulina</li><li>Fatima</li><li>Barbara</li><li>Marietta</li><li>Charlotte</li></ul><p>Measures lung capacity with balloons and uses AI to compare results and improve breathing.</p></div>
+      <div class="team"><h4>Team 3 — Balance & Coordination with AI Feedback</h4><ul><li>Paola</li><li>Lucia</li><li>Yaretzi</li><li>Mariana</li><li>Matias</li></ul><p>Tests balance using sensors and AI to analyze movement like astronauts training in zero gravity.</p></div>
+      <div class="team"><h4>Team 4 — Cognitive Reflex & Reaction Test</h4><ul><li>Montse</li><li>Loretta</li><li>Camila</li><li>Sofia</li><li>Estefania</li></ul><p>Measures reflex speed with a ruler test and AI to calculate reaction time for astronaut training.</p></div>
+      <div class="team"><h4>Team 5 — Heart Rate & Oxygen Monitor</h4><ul><li>Renee</li><li>Abigail</li><li>Victoria</li><li>Emiliano</li><li>Zara</li></ul><p>Uses a pulse oximeter and AI analysis to track oxygen and heart rate levels like real doctors.</p></div>
+      <div class="team"><h4>Team 6 — Muscle Strength & Gravity Resistance</h4><ul><li>Dany</li><li>Pato</li><li>Leo</li><li>Marco</li><li>José</li></ul><p>Analyzes grip strength with AI to study how astronauts maintain muscles in zero gravity.</p></div>
+    </div>
   </section>
 
-  <footer>
-    <div class="foot">
-      <span>© Carol Baur School — ISS Science Fair</span>
-      <span style="opacity:.6">·</span>
-      <span>Design system inspired by the International Space Station.</span>
-      <div class="palette" title="Color Palette">
-        <div class="sw" style="background:var(--space-0)"></div>
-        <div class="sw" style="background:var(--space-1)"></div>
-        <div class="sw" style="background:var(--space-2)"></div>
-        <div class="sw" style="background:var(--space-3)"></div>
-        <div class="sw" style="background:var(--space-4)"></div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Lightweight QR generator -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-  <script>
-    // ====== DATA: Edit below to add your real teams ======
-    const teams5 = [
-      {
-        name: "Team 1 — AI Diagnostics",
-        members: ["Saad", "Pepe Luis", "Chucho", "Val"],
-        blurb: "Using AI to help doctors analyze medical images faster and spot patterns like a trained specialist.",
-      },
-      // TODO: Replace the placeholder entries below with your actual teams
-      { name: "Team 2 — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
-      { name: "Team 3 — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
-      { name: "Team 4 — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
-    ];
-
-    const teams6 = [
-      { name: "Team A — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
-      { name: "Team B — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
-      { name: "Team C — (edit)", members: ["Member 1","Member 2","Member 3","Member 4"], blurb: "Brief mission description (1–2 sentences)." },
-    ];
-
-    // ====== RENDER ======
-    function teamCard(t){
-      const el = document.createElement('article');
-      el.className = 'team';
-      el.innerHTML = `
-        <h4>${t.name}</h4>
-        <div class="meta">Members</div>
-        <ul>${t.members.map(m=>`<li>${m}</li>`).join('')}</ul>
-        <p>${t.blurb}</p>
-      `;
-      return el;
-    }
-    function render(){
-      const g5 = document.getElementById('grid-5');
-      const g6 = document.getElementById('grid-6');
-      g5.replaceChildren(...teams5.map(teamCard));
-      g6.replaceChildren(...teams6.map(teamCard));
-    }
-    render();
-
-    // ====== QR for current page ======
-    function makeQR(){
-      const url = window.location.href;
-      const canvas = document.createElement('canvas');
-      QRCode.toCanvas(canvas, url, { width: 220, margin: 1, color: { dark: '#0B3D91', light: '#ffffff' } }, function (error) {
-        if (error) console.error(error);
-        const holder = document.getElementById('qrcode');
-        holder.innerHTML = '';
-        holder.appendChild(canvas);
-      })
-    }
-    makeQR();
-    window.addEventListener('hashchange', makeQR);
-
-    // Download QR as PNG
-    document.getElementById('downloadQR').addEventListener('click', () => {
-      const canvas = document.querySelector('#qrcode canvas');
-      const link = document.createElement('a');
-      link.download = 'ISS_ScienceFair_QR.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    });
-  </script>
+  <footer style="text-align:center;padding:20px;color:#9fb3c8;font-size:13px">© Carol Baur School — ISS Science Fair 2025</footer>
 </body>
 </html>
