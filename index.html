@@ -18,7 +18,7 @@
     header{position:sticky;top:0;background:linear-gradient(180deg, rgba(11,14,26,.95), rgba(11,14,26,.75));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
     .nav{display:flex;align-items:center;gap:16px;max-width:1100px;margin:0 auto;padding:12px 16px}
     .brand{display:flex;align-items:center;gap:12px}
-    /* >>> LOGO LINE YOU ASKED ABOUT (uses assets/logo.png) <<< */
+    /* >>> LOGO (uses assets/logo.png) <<< */
     .brand img{height:72px;width:auto;border-radius:12px;background:#fff;padding:8px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
     .brand h1{font-family:Orbitron,Inter,sans-serif;font-size:18px;letter-spacing:.08em;margin:0}
     .spacer{flex:1}
@@ -33,9 +33,25 @@
     .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
     .button{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;background:var(--space-1);color:#fff;border:1px solid rgba(255,255,255,.1);font-weight:600}
     .button.alt{background:transparent;border-color:rgba(255,255,255,.22)}
+    /* Fancy yellow fun-facts button */
+    .funfacts-btn{
+      display:inline-block;background:linear-gradient(90deg,#FFB800,#FFEA80);color:#000;
+      padding:12px 16px;border-radius:14px;font-family:Orbitron,Inter,sans-serif;font-weight:700;
+      text-decoration:none;letter-spacing:.02em;position:relative;overflow:hidden;
+      transition:all .25s ease;box-shadow:0 0 15px rgba(255,184,0,.30); border:1px solid rgba(255,255,255,.15)
+    }
+    .funfacts-btn::before{
+      content:""; position:absolute; top:0; left:-70%; width:50%; height:100%;
+      background:linear-gradient(120deg,rgba(255,255,255,.45),rgba(255,255,255,0)); transform:skewX(-25deg);
+      transition:left .45s ease;
+    }
+    .funfacts-btn:hover{transform:scale(1.04); box-shadow:0 0 24px rgba(255,184,0,.55)}
+    .funfacts-btn:hover::before{left:120%}
+
     /* ISS logo card (replaces QR) */
     .iss-card{display:flex;align-items:center;justify-content:center;min-height:260px}
     .iss-card img{max-width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:#000}
+
     .section{max-width:1100px;margin:24px auto;padding:0 16px}
     .section h3{font-family:Orbitron;margin:0 0 12px}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
@@ -43,11 +59,20 @@
     .team h4{margin:0 0 6px;font-family:Orbitron}
     .team ul{padding-left:16px;margin:8px 0;color:#e6f1ff}
     .team p{color:#dbe9ff;margin:8px 0 0}
+
+    /* Fun Facts cards */
+    .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+    .fact{background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:16px;box-shadow:var(--shadow);padding:16px}
+    .fact h4{margin:0 0 6px;font-family:Orbitron;color:#dbe9ff}
+    .fact p{margin:0;color:#e6f1ff}
+    .kicker{color:#9fb3c8;margin:6px 0 14px}
+
     footer{border-top:1px solid rgba(255,255,255,.08);margin-top:30px}
     .foot{max-width:1100px;margin:0 auto;padding:16px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
     .palette{display:flex;gap:8px;margin-left:auto}
     .sw{width:20px;height:20px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}
     @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    html{scroll-behavior:smooth}
   </style>
 </head>
 <body>
@@ -61,6 +86,7 @@
       <div class="spacer"></div>
       <a class="tab" href="#teams-5">5th Grade</a>
       <a class="tab" href="#teams-6">6th Grade</a>
+      <a class="tab" href="#iss-fun-facts">ISS Fun Facts</a>
     </nav>
   </header>
 
@@ -76,10 +102,12 @@
       <div class="cta">
         <a class="button" href="#teams-5">Browse 5th Grade</a>
         <a class="button alt" href="#teams-6">Browse 6th Grade</a>
+        <!-- NEW: fun facts button that jumps to the ISS facts section -->
+        <a class="funfacts-btn" href="#iss-fun-facts">🛰️ ISS Fun Facts</a>
       </div>
     </section>
 
-    <!-- REPLACES THE QR: ISS National Laboratory logo -->
+    <!-- ISS National Laboratory logo -->
     <aside class="card iss-card">
       <img src="assets/iss.png" alt="ISS National Laboratory">
     </aside>
@@ -164,6 +192,46 @@
         <ul><li>Daniel</li><li>Patricio</li><li>Leonardo</li><li>Marco</li><li>José</li></ul>
         <p>Grip-strength test with AI suggestions to maintain muscle in microgravity.</p>
       </article>
+    </div>
+  </section>
+
+  <!-- NEW: International Space Station Fun Facts -->
+  <section class="section" id="iss-fun-facts">
+    <h3>🛰️ International Space Station — Fun Facts</h3>
+    <p class="kicker">Quick bites for parents & students. Use these during your booth intros!</p>
+    <div class="facts">
+      <div class="fact">
+        <h4>Orbit Speed</h4>
+        <p>The ISS orbits Earth at ~28,000 km/h (17,500 mph) — fast enough to lap the planet ~15–16 times per day.</p>
+      </div>
+      <div class="fact">
+        <h4>Altitude</h4>
+        <p>It flies about 400 km (250 miles) above Earth — that’s lower than the distance from Querétaro to Monterrey.</p>
+      </div>
+      <div class="fact">
+        <h4>Sunrises</h4>
+        <p>Astronauts see a sunrise or sunset roughly every 45 minutes — about 16 of each every day.</p>
+      </div>
+      <div class="fact">
+        <h4>Size</h4>
+        <p>It’s about the size of a football field tip-to-tip and weighs ~420,000 kg — like ~320 cars.</p>
+      </div>
+      <div class="fact">
+        <h4>International Team</h4>
+        <p>It’s a partnership between NASA, Roscosmos, ESA, JAXA, and CSA — real global teamwork in space.</p>
+      </div>
+      <div class="fact">
+        <h4>Microgravity Lab</h4>
+        <p>Experiments on health, materials, plants, and tech help astronauts — and people on Earth.</p>
+      </div>
+      <div class="fact">
+        <h4>Docking Visitors</h4>
+        <p>Spacecraft like Dragon and Soyuz bring crew, cargo, and new experiments.</p>
+      </div>
+      <div class="fact">
+        <h4>See It From Home</h4>
+        <p>On some nights, you can see the ISS pass overhead as a bright moving “star.”</p>
+      </div>
     </div>
   </section>
 
